@@ -21,9 +21,9 @@ RUN cargo build --target x86_64-unknown-linux-musl --release
 
 FROM scratch
 
-COPY --from=build /app/mpc-party/target/x86_64-unknown-linux-musl/release/mpc_communication ./
+COPY --from=build /app/mpc-party/target/x86_64-unknown-linux-musl/release/mpc-communication ./
 COPY --from=build /usr/lib/libnss* /usr/lib/libresolv*
 COPY --from=build /usr/lib/libresolv* /usr/lib/libresolv*
 ENV ROCKET_ENV=prod
 
-CMD ["./mpc_communication"]
+CMD ["./mpc-communication"]
